@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* Warm white background with teal/sage palette */
+    --background: 0.97 0.006 80;
+    --foreground: 0.18 0.02 240;
+
+    --card: 0.99 0.003 80;
+    --card-foreground: 0.18 0.02 240;
+
+    --popover: 0.99 0.003 80;
+    --popover-foreground: 0.18 0.02 240;
+
+    /* Teal primary */
+    --primary: 0.52 0.13 195;
+    --primary-foreground: 0.99 0 0;
+
+    --secondary: 0.93 0.02 195;
+    --secondary-foreground: 0.35 0.08 195;
+
+    --muted: 0.94 0.008 100;
+    --muted-foreground: 0.52 0.02 220;
+
+    /* Warm sage accent */
+    --accent: 0.90 0.04 155;
+    --accent-foreground: 0.25 0.08 155;
+
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --success: 0.60 0.16 155;
+    --success-foreground: 0.99 0 0;
+
+    --warning: 0.78 0.18 70;
+    --warning-foreground: 0.15 0.04 60;
+
+    --border: 0.88 0.012 200;
+    --input: 0.88 0.012 200;
+    --ring: 0.52 0.13 195;
+
+    --chart-1: 0.52 0.13 195;
+    --chart-2: 0.60 0.16 155;
+    --chart-3: 0.58 0.22 25;
+    --chart-4: 0.78 0.18 70;
+    --chart-5: 0.65 0.15 280;
+
+    --sidebar: 0.97 0.006 80;
+    --sidebar-foreground: 0.18 0.02 240;
+    --sidebar-primary: 0.52 0.13 195;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.02 195;
+    --sidebar-accent-foreground: 0.35 0.08 195;
+    --sidebar-border: 0.88 0.012 200;
+    --sidebar-ring: 0.52 0.13 195;
+
+    /* App specific */
+    --nav-height: 5rem;
+    --header-height: 4rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Cabinet Grotesk", "Figtree", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Ensure large touch targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    cursor: pointer;
+  }
+
+  input, textarea, select {
+    font-size: 18px !important;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+}
+
+@layer utilities {
+  .mobile-container {
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    position: relative;
+    @apply bg-background;
+    box-shadow: 0 0 60px oklch(0.18 0.02 240 / 0.08);
+  }
+
+  .screen-content {
+    padding-bottom: calc(var(--nav-height) + 1rem);
+    padding-top: var(--header-height);
+    min-height: 100dvh;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    height: var(--nav-height);
+    z-index: 50;
+  }
+
+  .top-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    height: var(--header-height);
+    z-index: 40;
+  }
+
+  .vital-card-bp { --vital-color: 0.52 0.18 10; }
+  .vital-card-hr { --vital-color: 0.58 0.22 25; }
+  .vital-card-glucose { --vital-color: 0.65 0.18 70; }
+  .vital-card-weight { --vital-color: 0.55 0.16 155; }
+  .vital-card-temp { --vital-color: 0.62 0.20 40; }
+  .vital-card-spo2 { --vital-color: 0.52 0.13 195; }
+}
