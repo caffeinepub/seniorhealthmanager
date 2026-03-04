@@ -95,7 +95,7 @@ export default function App() {
         )}
         <div className="flex-1 text-center">
           <span className="text-xl font-display font-bold text-primary tracking-tight">
-            HealthCompanion
+            SeniorHealthManager
           </span>
         </div>
         <div className="flex gap-1">
@@ -197,7 +197,7 @@ function LandingScreen({
           <Heart size={44} className="text-primary" />
         </div>
         <h1 className="text-4xl font-display font-bold text-foreground mb-2">
-          HealthCompanion
+          SeniorHealthManager
         </h1>
         <p className="text-xl text-muted-foreground text-center leading-relaxed">
           Your personal health management companion
